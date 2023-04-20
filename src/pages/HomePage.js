@@ -36,7 +36,7 @@ const Home = () => {
       })
       .then((res) => {
         setUser(res.data.user);
-        socket.current = io('http://localhost:3001');
+        socket.current = io(process.env.REACT_APP_SOCKET_URL);
         socket.current.on('getMessage', (data) => {
           setArrivalMessage({
             senderId: data.senderId,
